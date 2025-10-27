@@ -13,6 +13,8 @@ import java.time.LocalDate;
  * @author kevin
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "pago")
 @Getter
@@ -29,6 +31,7 @@ public class Pago {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "metodo_pago_id", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private MetodoPago metodoPago;
 
     @Column(name = "estado_pago", length = 30)
@@ -45,6 +48,8 @@ public class Pago {
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pedido_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Pedido pedido;
-
 }
+
+

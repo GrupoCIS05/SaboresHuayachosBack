@@ -14,6 +14,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
-    Optional<Usuario> findByCorreoIgnoreCase(String correo);  
+    Optional<Usuario> findByCorreoIgnoreCase(String correo);
+
     boolean existsByCorreo(String correo);
+
+    Optional<Usuario> findByPersonaId(Integer personaId);
+
 }
